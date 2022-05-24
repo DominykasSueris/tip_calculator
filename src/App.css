@@ -11,11 +11,10 @@ body {
 }
 
 .table {
-  width: 90%;
+  width: 50%;
   height: 230px;
-  margin-left: 5%;
-  margin-right: 5%;
-  padding: 8px 24px;
+  margin: 0 25%;
+  padding: 0px 24px;
   position: absolute;
   top: 33%;
   border: solid 2px black;
@@ -23,26 +22,65 @@ body {
   border-radius: 16px;
 }
 
-.tip {
-  margin: 16px;
-}
-
 .bill-container {
-  display: flex;
-  flex-direction: column;
   position: absolute;
   width: 50%;
   height: 100%;
   left: 0;
-  border: solid 2px red;
+}
+
+.bill-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 30%;
+}
+
+.bill-form input {
+  width: 80%;
+}
+
+.select-tip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 40%;
 }
 
 .tip-container {
-  display: flex;
-  flex-direction: column;
   position: absolute;
   width: 50%;
   height: 100%;
   right: 0;
-  border: solid 2px red;
+}
+
+.tip-form {
+  height: 60%;
+}
+
+.tip {
+  padding-top: 30px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.calculate {
+  display: flex;
+  flex-direction: column;
+  height: 34%;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+label {
+  width: 80%;
+  text-align: left;
+}
+
+.calculate button {
+  width: 70%;
 }

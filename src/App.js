@@ -33,43 +33,45 @@ const App = () => {
 
   return (
     <div className="App">
-      <table className="table">
+      <div className="table">
         <div className="bill-container">
-          <div className="bill">
+          <div className="bill-form">
             <label>Bill</label>
             <input type="text" name="bill" value={bill} onChange={e => setBill(e.target.value)} />
           </div>
-          <label> Select tip %</label>
-          <button value={5} onClick={tipInput}>
-            5%
-          </button>
-          <button value={10} onClick={tipInput}>
-            10%
-          </button>
-          <button value={15} onClick={tipInput}>
-            15%
-          </button>
-          <button value={25} onClick={tipInput}>
-            25%
-          </button>
-          <button value={50} onClick={tipInput}>
-            50%
-          </button>
-          <div>
-            {customPercentage ? (
-              <div className="bill">
-                <input
-                  type="text"
-                  name="custom"
-                  value={customAmount}
-                  onChange={e => setCustomAmout(e.target.value)}
-                />
-              </div>
-            ) : (
-              <button onClick={customTip}>Custom</button>
-            )}
+          <div className="select-tip">
+            <label> Select tip %</label>
+            <div className="buttons">
+              <button value={5} onClick={tipInput}>
+                5%
+              </button>
+              <button value={10} onClick={tipInput}>
+                10%
+              </button>
+              <button value={15} onClick={tipInput}>
+                15%
+              </button>
+              <button value={25} onClick={tipInput}>
+                25%
+              </button>
+              <button value={50} onClick={tipInput}>
+                50%
+              </button>
+              {customPercentage ? (
+                <div className="bill-custom">
+                  <input
+                    type="text"
+                    name="custom"
+                    value={customAmount}
+                    onChange={e => setCustomAmout(e.target.value)}
+                  />
+                </div>
+              ) : (
+                <button onClick={customTip}>Custom</button>
+              )}
+            </div>
           </div>
-          <div className="people">
+          <div className="bill-form">
             <label>Number of people</label>
             <input
               type="text"
@@ -80,19 +82,21 @@ const App = () => {
           </div>
         </div>
         <div className="tip-container">
-          <div className="tip">
-            <label>Tip Amount</label>
-            <input type="text" name="tip-amount" value={tip} />
-          </div>
-          <div>
+          <div className="tip-form">
             <div className="tip">
-              <label>Tip </label>
-              <input
-                type="text"
-                name="tip"
-                value={amount}
-                onChange={e => setAmount(e.target.value)}
-              />
+              <label>Tip Amount</label>
+              <input type="text" name="tip-amount" value={tip} />
+            </div>
+            <div>
+              <div className="tip">
+                <label>Tip </label>
+                <input
+                  type="text"
+                  name="tip"
+                  value={amount}
+                  onChange={e => setAmount(e.target.value)}
+                />
+              </div>
             </div>
           </div>
           <div className="calculate">
@@ -106,7 +110,7 @@ const App = () => {
             </button>
           </div>
         </div>
-      </table>
+      </div>
     </div>
   );
 };
