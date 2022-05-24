@@ -33,18 +33,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className="bill">
-        <label>Bill</label>
-        <input type="text" name="bill" value={bill} onChange={e => setBill(e.target.value)} />
-      </div>
-      <div className="people">
-        <label>Number of people</label>
-        <input type="text" name="people" value={people} onChange={e => setPeople(e.target.value)} />
-        <div className="tip">
-          <label>Tip</label>
-          <input type="text" name="tip" value={tip} />
-        </div>
-        <div>
+      <table className="table">
+        <div className="bill-container">
+          <div className="bill">
+            <label>Bill</label>
+            <input type="text" name="bill" value={bill} onChange={e => setBill(e.target.value)} />
+          </div>
           <label> Select tip %</label>
           <button value={5} onClick={tipInput}>
             5%
@@ -75,22 +69,44 @@ const App = () => {
               <button onClick={customTip}>Custom</button>
             )}
           </div>
+          <div className="people">
+            <label>Number of people</label>
+            <input
+              type="text"
+              name="people"
+              value={people}
+              onChange={e => setPeople(e.target.value)}
+            />
+          </div>
         </div>
-        <div className="tip">
-          <label>Tip amount</label>
-          <input type="text" name="tip" value={amount} onChange={e => setAmount(e.target.value)} />
+        <div className="tip-container">
+          <div className="tip">
+            <label>Tip Amount</label>
+            <input type="text" name="tip-amount" value={tip} />
+          </div>
+          <div>
+            <div className="tip">
+              <label>Tip </label>
+              <input
+                type="text"
+                name="tip"
+                value={amount}
+                onChange={e => setAmount(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="calculate">
+            <button
+              onClick={() => {
+                setTip(sum);
+                setAmount(tipAmount);
+              }}
+            >
+              Calculate
+            </button>
+          </div>
         </div>
-        <div className="calculate">
-          <button
-            onClick={() => {
-              setTip(sum);
-              setAmount(tipAmount);
-            }}
-          >
-            Calculate
-          </button>
-        </div>
-      </div>
+      </table>
     </div>
   );
 };
