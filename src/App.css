@@ -1,10 +1,13 @@
 .App {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
   width: 100vw;
 }
 
 body {
+  font-family: "Merriweather", serif;
   box-sizing: border-box;
   margin: 0;
   background-color: #d9f1f3;
@@ -18,34 +21,45 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .table {
+  display: flex;
   width: 50%;
   height: 40%;
-  margin: 0 25%;
-  padding: 0px 24px;
-  position: absolute;
-  top: 33%;
+  padding: 24px 24px;
   border: solid 2px black;
   background-color: white;
   border-radius: 16px;
 }
 
 .bill-container {
-  position: absolute;
+  display: flex;
+  flex-direction: column;
   width: 50%;
-  height: 100%;
-  left: 0;
+  margin-right: 24px;
 }
 
 .bill-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  margin: 10% 0;
   height: 30%;
 }
 
+.bill-form label {
+  padding-bottom: 8px;
+  color: hsl(186, 14%, 43%);
+  font-weight: 700;
+}
+
 .bill-form input {
-  width: 80%;
+  height: 100%;
+  width: 95%;
+  background-color: hsl(189, 41%, 97%);
+  color: hsl(184, 14%, 56%);
+  padding-right: 8px;
+  border: none;
+  text-align: end;
+  font-size: x-large;
+  font-weight: 700;
 }
 
 .select-tip {
@@ -55,19 +69,46 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 40%;
 }
 
+.select-tip label {
+  padding-bottom: 8px;
+  color: hsl(186, 14%, 43%);
+  font-weight: 700;
+}
+
 .tip-container {
-  position: absolute;
+  background-color: hsl(183, 100%, 15%);
+  border-radius: 16px;
   width: 50%;
-  height: 100%;
-  right: 0;
 }
 
 .tip-form {
-  height: 60%;
+  margin-top: 36px;
 }
 
 .tip {
-  padding-top: 30px;
+  display: flex;
+  height: 50%;
+  margin-bottom: 32px;
+}
+
+.tip input {
+  width: 100%;
+  font-size: 30px;
+  color: hsl(184, 14%, 56%);
+  border: none;
+  background-color: hsl(183, 100%, 15%);
+  text-align: end;
+  padding-right: 24px;
+}
+
+.tip label {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  padding-left: 16px;
+  color: hsl(189, 41%, 97%);
+  font-size: medium;
+  font-weight: 700;
 }
 
 .buttons {
@@ -75,19 +116,39 @@ input[type="number"]::-webkit-outer-spin-button {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.calculate {
+.reset {
   display: flex;
   flex-direction: column;
-  height: 34%;
+  height: 40%;
   justify-content: flex-end;
   align-items: center;
 }
 
-label {
-  width: 80%;
-  text-align: left;
+.reset button {
+  width: 90%;
+  height: 36px;
+  background-color: hsl(184, 14%, 56%);
+  color: hsl(185, 41%, 84%);
+  font-weight: 700;
+  border: none;
+  border-radius: 4px;
 }
 
-.calculate button {
-  width: 70%;
+.buttons button {
+  height: 32px;
+  margin: 4px;
+  background-color: hsl(183, 100%, 15%);
+  color: hsl(189, 41%, 97%);
+  font-weight: 700;
+  border-radius: 4px;
+  border: none;
+}
+
+#custom-button-style {
+  height: 32px;
+  margin: 4px;
+  background-color: hsl(189, 41%, 97%);
+  color: hsl(186, 14%, 43%);
+  font-weight: 800;
+  border: none;
 }

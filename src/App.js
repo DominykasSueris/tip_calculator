@@ -63,7 +63,9 @@ const App = () => {
                   />
                 </div>
               ) : (
-                <button onClick={e => setCustomPercentage(true)}>Custom</button>
+                <button id="custom-button-style" onClick={e => setCustomPercentage(true)}>
+                  Custom
+                </button>
               )}
             </div>
           </div>
@@ -80,22 +82,20 @@ const App = () => {
         <div className="tip-container">
           <div className="tip-form">
             <div className="tip">
-              <label>Total Tip Amount</label>
-              <input type="text" name="tip-amount" value={totalTipAmount} />
+              <label>Tip amount</label>
+              <input type="number" name="tip-amount" value={totalTipAmount} />
             </div>
-            <div>
-              <div className="tip">
-                <label>Tip per person </label>
-                <input
-                  type="number"
-                  name="tip"
-                  value={tipAmountPerPerson}
-                  onChange={e => setTipAmountPerPerson(e.target.value)}
-                />
-              </div>
+            <div className="tip">
+              <label>Per person </label>
+              <input
+                type="number"
+                name="tip"
+                value={tipAmountPerPerson}
+                onChange={e => setTipAmountPerPerson(e.target.value)}
+              />
             </div>
           </div>
-          <div className="calculate">
+          <div className="reset">
             <button
               onClick={() => {
                 setBill(0);
