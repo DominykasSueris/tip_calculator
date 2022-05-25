@@ -52,16 +52,15 @@ const App = () => {
                 50%
               </button>
               {isCustomPercentage ? (
-                <div className="bill-custom">
-                  <input
-                    type="number"
-                    name="custom"
-                    value={tipPercentage}
-                    autoFocus
-                    onChange={e => setTipPercentage(e.target.value)}
-                    onClick={e => setCustomPercentage(false)}
-                  />
-                </div>
+                <input
+                  className="custom-button-onclick-style"
+                  type="number"
+                  name="custom"
+                  value={tipPercentage}
+                  autoFocus
+                  onChange={e => setTipPercentage(e.target.value)}
+                  onClick={e => setCustomPercentage(false)}
+                />
               ) : (
                 <button id="custom-button-style" onClick={e => setCustomPercentage(true)}>
                   Custom
@@ -83,16 +82,11 @@ const App = () => {
           <div className="tip-form">
             <div className="tip">
               <label>Tip amount</label>
-              <input type="number" name="tip-amount" value={totalTipAmount} />
+              <span>{totalTipAmount.toFixed(2)}</span>
             </div>
             <div className="tip">
               <label>Per person </label>
-              <input
-                type="number"
-                name="tip"
-                value={tipAmountPerPerson}
-                onChange={e => setTipAmountPerPerson(e.target.value)}
-              />
+              <span>{tipAmountPerPerson.toFixed(2)}</span>
             </div>
           </div>
           <div className="reset">
