@@ -10,9 +10,16 @@ body {
   background-color: #d9f1f3;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 .table {
   width: 50%;
-  height: 230px;
+  height: 40%;
   margin: 0 25%;
   padding: 0px 24px;
   position: absolute;

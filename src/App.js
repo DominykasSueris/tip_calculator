@@ -2,34 +2,28 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 const App = () => {
-  const [bill, setBill] = useState("0");
-  const [people, setPeople] = useState("0");
-  const [tip, setTip] = useState("0");
-  const [amount, setAmount] = useState("0");
-  const [tipPercentage, setTipPercentage] = useState("");
-  const [customPercentage, setCustomPercentage] = useState(false);
-  const [customAmount, setCustomAmout] = useState("0");
-
-  const customTip = () => {
-    setCustomPercentage(true);
-    console.log("Clicked");
-  };
+  const [bill, setBill] = useState(0);
+  const [people, setPeople] = useState(0);
+  const [totalTipAmount, setTotalTipAmount] = useState(0);
+  const [tipAmountPerPerson, setTipAmountPerPerson] = useState(0);
+  const [tipPercentage, setTipPercentage] = useState(0);
+  const [isCustomPercentage, setCustomPercentage] = useState(false);
 
   useEffect(() => {
-    console.log(customPercentage);
-  }, [customPercentage]);
-
-  const tipInput = e => {
-    console.log(e.target.value);
-    if (setCustomPercentage === "true") {
-      setCustomAmout(e.target.value);
+    if (bill && people && tipPercentage) {
+      setTotalTipAmount((bill * tipPercentage) / 100);
     } else {
-      setTipPercentage(e.target.value);
+      console.log("invalid amount");
     }
-  };
+  }, [bill, people, tipPercentage]);
 
-  const sum = (bill * tipPercentage) / 100;
-  const tipAmount = sum / people;
+  useEffect(() => {
+    if (bill && people && tipPercentage) {
+      setTipAmountPerPerson(totalTipAmount / people);
+    } else {
+      console.log("invalid amount");
+    }
+  }, [bill, people, tipPercentage, totalTipAmount]);
 
   return (
     <div className="App">
@@ -37,44 +31,46 @@ const App = () => {
         <div className="bill-container">
           <div className="bill-form">
             <label>Bill</label>
-            <input type="text" name="bill" value={bill} onChange={e => setBill(e.target.value)} />
+            <input type="number" name="bill" value={bill} onChange={e => setBill(e.target.value)} />
           </div>
           <div className="select-tip">
             <label> Select tip %</label>
             <div className="buttons">
-              <button value={5} onClick={tipInput}>
+              <button value={5} onClick={e => setTipPercentage(e.target.value)}>
                 5%
               </button>
-              <button value={10} onClick={tipInput}>
+              <button value={10} onClick={e => setTipPercentage(e.target.value)}>
                 10%
               </button>
-              <button value={15} onClick={tipInput}>
+              <button value={15} onClick={e => setTipPercentage(e.target.value)}>
                 15%
               </button>
-              <button value={25} onClick={tipInput}>
+              <button value={25} onClick={e => setTipPercentage(e.target.value)}>
                 25%
               </button>
-              <button value={50} onClick={tipInput}>
+              <button value={50} onClick={e => setTipPercentage(e.target.value)}>
                 50%
               </button>
-              {customPercentage ? (
+              {isCustomPercentage ? (
                 <div className="bill-custom">
                   <input
-                    type="text"
+                    type="number"
                     name="custom"
-                    value={customAmount}
-                    onChange={e => setCustomAmout(e.target.value)}
+                    value={tipPercentage}
+                    autoFocus
+                    onChange={e => setTipPercentage(e.target.value)}
+                    onClick={e => setCustomPercentage(false)}
                   />
                 </div>
               ) : (
-                <button onClick={customTip}>Custom</button>
+                <button onClick={e => setCustomPercentage(true)}>Custom</button>
               )}
             </div>
           </div>
           <div className="bill-form">
             <label>Number of people</label>
             <input
-              type="text"
+              type="number"
               name="people"
               value={people}
               onChange={e => setPeople(e.target.value)}
@@ -84,17 +80,17 @@ const App = () => {
         <div className="tip-container">
           <div className="tip-form">
             <div className="tip">
-              <label>Tip Amount</label>
-              <input type="text" name="tip-amount" value={tip} />
+              <label>Total Tip Amount</label>
+              <input type="text" name="tip-amount" value={totalTipAmount} />
             </div>
             <div>
               <div className="tip">
-                <label>Tip </label>
+                <label>Tip per person </label>
                 <input
-                  type="text"
+                  type="number"
                   name="tip"
-                  value={amount}
-                  onChange={e => setAmount(e.target.value)}
+                  value={tipAmountPerPerson}
+                  onChange={e => setTipAmountPerPerson(e.target.value)}
                 />
               </div>
             </div>
@@ -102,11 +98,14 @@ const App = () => {
           <div className="calculate">
             <button
               onClick={() => {
-                setTip(sum);
-                setAmount(tipAmount);
+                setBill(0);
+                setPeople(0);
+                setTotalTipAmount(0);
+                setTipAmountPerPerson(0);
+                setTipPercentage(0);
               }}
             >
-              Calculate
+              Reset
             </button>
           </div>
         </div>
