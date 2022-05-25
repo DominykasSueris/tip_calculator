@@ -8,6 +8,7 @@ const App = () => {
   const [tipAmountPerPerson, setTipAmountPerPerson] = useState(0);
   const [tipPercentage, setTipPercentage] = useState(0);
   const [isCustomPercentage, setCustomPercentage] = useState(false);
+  const [isResetActive, setResetActive] = useState("reset-button");
 
   useEffect(() => {
     if (bill && people && tipPercentage) {
@@ -91,12 +92,14 @@ const App = () => {
           </div>
           <div className="reset">
             <button
+              id={isResetActive}
               onClick={() => {
                 setBill(0);
                 setPeople(0);
                 setTotalTipAmount(0);
                 setTipAmountPerPerson(0);
                 setTipPercentage(0);
+                setResetActive("reset-button-active");
               }}
             >
               Reset
