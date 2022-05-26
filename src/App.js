@@ -32,7 +32,13 @@ const App = () => {
         <div className="bill-container">
           <div className="bill-form">
             <label>Bill</label>
-            <input type="number" name="bill" value={bill} onChange={e => setBill(e.target.value)} />
+            <input
+              className="bill-input"
+              type="number"
+              name="bill"
+              value={bill}
+              onChange={e => setBill(e.target.value)}
+            />
           </div>
           <div className="select-tip">
             <label> Select tip %</label>
@@ -72,6 +78,7 @@ const App = () => {
           <div className="bill-form">
             <label>Number of people</label>
             <input
+              className="bill-input"
               type="number"
               name="people"
               value={people}
