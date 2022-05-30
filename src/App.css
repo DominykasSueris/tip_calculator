@@ -200,3 +200,30 @@ input[type="number"]::-webkit-outer-spin-button {
 .custom-button-onclick-style:focus {
   outline: none;
 }
+
+@media (min-width: 350px) and (max-width: 680px) {
+  .table {
+    flex-direction: column;
+    width: 100%;
+    height: 80%;
+  }
+
+  .bill-container {
+    width: 100%;
+  }
+
+  .tip-container {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .bill-form input {
+    height: 40%;
+  }
+
+  .bill-form {
+    justify-content: center;
+  }
+}
