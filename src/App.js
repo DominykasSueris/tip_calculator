@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import DollarSign from "./images/icon-dollar.svg";
+import PersonIcon from "./images/icon-person.svg";
 import "./App.css";
 
 const App = () => {
@@ -32,13 +34,16 @@ const App = () => {
         <div className="bill-container">
           <div className="bill-form">
             <label>Bill</label>
-            <input
-              className="bill-input"
-              type="number"
-              name="bill"
-              value={bill}
-              onChange={e => setBill(e.target.value)}
-            />
+            <div className="bill-image">
+              <img src={DollarSign} alt="dollar-sign" />
+              <input
+                className="bill-input"
+                type="number"
+                name="bill"
+                value={bill}
+                onChange={e => setBill(e.target.value)}
+              />
+            </div>
           </div>
           <div className="select-tip">
             <label> Select tip %</label>
@@ -77,13 +82,16 @@ const App = () => {
           </div>
           <div className="bill-form">
             <label>Number of people</label>
-            <input
-              className="bill-input"
-              type="number"
-              name="people"
-              value={people}
-              onChange={e => setPeople(e.target.value)}
-            />
+            <div className="bill-image">
+              <img src={PersonIcon} alt="person-icon" />
+              <input
+                className="bill-input"
+                type="number"
+                name="people"
+                value={people}
+                onChange={e => setPeople(e.target.value)}
+              />
+            </div>
           </div>
         </div>
         <div className="tip-container">
