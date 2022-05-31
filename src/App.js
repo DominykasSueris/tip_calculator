@@ -13,18 +13,14 @@ const App = () => {
   const [isResetActive, setResetActive] = useState("reset-button");
 
   useEffect(() => {
-    if (bill && people && tipPercentage) {
+    if (Number(bill) && Number(people) && tipPercentage) {
       setTotalTipAmount((bill * tipPercentage) / 100);
-    } else {
-      console.log("invalid amount");
     }
   }, [bill, people, tipPercentage]);
 
   useEffect(() => {
-    if (bill && people && tipPercentage) {
+    if (Number(bill) && Number(people) && tipPercentage) {
       setTipAmountPerPerson(totalTipAmount / people);
-    } else {
-      console.log("invalid amount");
     }
   }, [bill, people, tipPercentage, totalTipAmount]);
 
@@ -37,7 +33,7 @@ const App = () => {
             <div className="bill-image">
               <img src={DollarSign} alt="dollar-sign" />
               <input
-                className="bill-input"
+                className={`bill-input ${!Number(bill) ? "red-color" : ""}`}
                 type="number"
                 name="bill"
                 value={bill}
@@ -85,7 +81,7 @@ const App = () => {
             <div className="bill-image">
               <img src={PersonIcon} alt="person-icon" />
               <input
-                className="bill-input"
+                className={`bill-input ${!Number(people) ? "red-color" : ""}`}
                 type="number"
                 name="people"
                 value={people}
