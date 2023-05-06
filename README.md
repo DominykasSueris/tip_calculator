@@ -22,6 +22,6 @@ $ git clone "https://github.com/DominykasSueris/tip_calculator"
 ## Inspiration 
 This app is a task from frontmentor.io 
 
-<img width="1440" alt="calculator_Img" src="https://user-images.githubusercontent.com/77460042/236638031-fbe4ea83-75e2-470b-b8f7-9a8c6ecedfc7.png">!
+<img width="1440" alt="calculator_Img" src="https://user-images.githubusercontent.com/77460042/236638031-fbe4ea83-75e2-470b-b8f7-9a8c6ecedfc7.png">
 
 
