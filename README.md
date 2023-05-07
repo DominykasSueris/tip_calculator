@@ -8,7 +8,7 @@
 
 ## General info
 
- Simple Tip calculator app created with React.js and CSS. 
+Simple Tip calculator app created with React.js and CSS. 
 
 ## Technologies
 Project is created with:
@@ -17,7 +17,7 @@ Project is created with:
 ## Setup
 To run this project, clone it locally from github:
 
-$ git clone "https://github.com/DominykasSueris/tip_calculator"
+`git clone "https://github.com/DominykasSueris/tip_calculator`
 
 ## Inspiration 
 This app is a task from (https://www.frontendmentor.io/)
